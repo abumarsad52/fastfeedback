@@ -17,6 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Feedback Management App"}
+
 # ✅ Create tables on startup
 @app.on_event("startup")
 async def create_tables():
