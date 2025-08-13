@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 from .config import settings
+import os
 
 # Build the DATABASE_URL from settings (reads from .env via pydantic settings)
 DATABASE_URL = (
@@ -8,6 +9,11 @@ DATABASE_URL = (
     f"{settings.database_password}@{settings.database_hostname}:"
     f"{settings.database_port}/{settings.database_name}"
 )
+
+# DATABASE_URL = os.getenv("DATABASE_URL")
+
+# if DATABASE_URL.startswith("postgres://"):
+#     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://", 1)
 
 
 # Create the async engine
