@@ -21,7 +21,7 @@ class UserOut(UserBase):
 
         
         
-# ---------- FEEDBACK SCHEMAS ----------
+# ---------- FEEDBACK SCHEMAS ---------
 
 class FeedbackBase(BaseModel):
     content:str  = Field(..., min_length=5, max_length=500)
