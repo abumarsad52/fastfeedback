@@ -8,10 +8,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# ✅ Allow frontend or any client to connect
+# ✅ Allow any client to connect
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Production mein yahan apne domain ka URL daalna
+    allow_origins=["*"],  # Configure specific domains for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
